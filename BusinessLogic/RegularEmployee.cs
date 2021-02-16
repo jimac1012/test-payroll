@@ -5,18 +5,28 @@ namespace BusinessLogic
 {
     public class RegularEmployee : IEmployee
     {
-        public string Name { get; set; }
-
-        public DateTime BirthDate { get; set; }
-
-        public string TIN { get; set; }
-
-        public decimal ComputeSalary(decimal basicSalary, decimal dayMultiplier)
+        public RegularEmployee(string name, DateTime birthDate, string tin, decimal basicSalary)
         {
-            var tax = basicSalary * (decimal)0.12;
-            var absence = dayMultiplier * (basicSalary / 22);
+            Name = name;
+            BasicSalary = basicSalary;
+            BirthDate = birthDate;
+            TIN = tin;
+        }
 
-            return basicSalary - tax - absence;
+        public string Name { get; }
+
+        public DateTime BirthDate { get; }
+
+        public string TIN { get; }
+
+        public decimal BasicSalary { get; }
+
+        public decimal ComputeSalary(decimal dayMultiplier)
+        {
+            var tax = BasicSalary * (decimal)0.12;
+            var absence = dayMultiplier * (BasicSalary / 22);
+
+            return Math.Round(BasicSalary - tax - absence, 2, MidpointRounding.ToEven);
         }
     }
 }

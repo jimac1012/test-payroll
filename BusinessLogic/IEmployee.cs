@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// ReSharper disable InconsistentNaming
 
 namespace BusinessLogic
 {
     public interface IEmployee
     {
-        string Name { get; set; }
+        string Name { get; }
 
-        DateTime BirthDate { get; set; }
+        DateTime BirthDate { get; }
 
-        string TIN { get; set; }
+        string TIN { get; }
 
-        decimal ComputeSalary(decimal basicSalary, decimal dayMultiplier);
+        decimal BasicSalary { get; }
+
+        decimal ComputeSalary(decimal dayMultiplier);
     }
 }
