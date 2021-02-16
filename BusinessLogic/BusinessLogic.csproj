@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContractualEmployee.cs" />
+    <Compile Include="EmployeeFactory.cs" />
+    <Compile Include="EmployeeType.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularEmployee.cs" />
