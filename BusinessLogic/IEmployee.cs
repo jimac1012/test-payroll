@@ -5,6 +5,8 @@ namespace BusinessLogic
 {
     public interface IEmployee
     {
+        string ID { get; }
+
         string Name { get; }
 
         DateTime BirthDate { get; }
@@ -12,6 +14,8 @@ namespace BusinessLogic
         string TIN { get; }
 
         decimal BasicSalary { get; }
+
+        EmployeeType EmployeeType { get; }
 
         decimal ComputeSalary(decimal dayMultiplier);
     }

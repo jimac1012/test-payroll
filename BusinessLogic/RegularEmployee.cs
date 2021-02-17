@@ -7,11 +7,15 @@ namespace BusinessLogic
     {
         public RegularEmployee(string name, DateTime birthDate, string tin, decimal basicSalary)
         {
+            ID = Guid.NewGuid().ToString("N");
             Name = name;
             BasicSalary = basicSalary;
             BirthDate = birthDate;
             TIN = tin;
+            EmployeeType = EmployeeType.Regular;
         }
+
+        public string ID { get; }
 
         public string Name { get; }
 
@@ -20,6 +24,8 @@ namespace BusinessLogic
         public string TIN { get; }
 
         public decimal BasicSalary { get; }
+
+        public EmployeeType EmployeeType { get; }
 
         public decimal ComputeSalary(decimal dayMultiplier)
         {
