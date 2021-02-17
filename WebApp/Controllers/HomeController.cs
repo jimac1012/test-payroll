@@ -9,20 +9,10 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private IList<IEmployee> GetEmployees()
+        private static IList<IEmployee> GetEmployees()
         {
             if (System.Web.HttpContext.Current.Application["emplyees"] is IList<IEmployee> employees)
                 return employees;
-
-            //var newEmployees = new List<IEmployee>
-            //{
-            //    EmployeeProvider.CreateEmployee(
-            //        "John Doe", DateTime.Today.AddYears(-30), "123-456-789-000", 33000m, EmployeeType.Regular ),
-            //    EmployeeProvider.CreateEmployee(
-            //        "Jane Doe", DateTime.Today.AddYears(-25), "456-789-123-000", 45000m, EmployeeType.Regular ),
-            //    EmployeeProvider.CreateEmployee(
-            //        "Joey Smith", DateTime.Today.AddYears(-20), "789-123-456-000", 750m, EmployeeType.Contractual )
-            //};
 
             var newEmployees = new List<IEmployee>();
 
@@ -81,6 +71,7 @@ namespace WebApp.Controllers
                 data.Name, data.BirthDate, data.TIN, data.BasicSalary, (EmployeeType) data.EmployeeType);
 
             employees.Add(newEmployee);
+            SaveEmployees(employees);
 
             var newEmployeePreview =
                 new EmployeePreview(newEmployee.ID, newEmployee.Name, newEmployee.EmployeeType.ToString());
