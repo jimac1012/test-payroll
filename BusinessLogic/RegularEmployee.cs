@@ -26,7 +26,7 @@ namespace BusinessLogic
             var tax = BasicSalary * (decimal)0.12;
             var absence = dayMultiplier * (BasicSalary / 22);
 
-            return Math.Round(BasicSalary - tax - absence, 2, MidpointRounding.ToEven);
+            return Math.Round(BasicSalary - tax - absence, 2);
         }
     }
 }

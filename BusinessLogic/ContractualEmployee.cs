@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
@@ -26,7 +22,7 @@ namespace BusinessLogic
 
         public decimal ComputeSalary(decimal dayMultiplier)
         {
-            return Math.Round(BasicSalary * dayMultiplier);
+            return Math.Round(BasicSalary * dayMultiplier, 2);
         }
     }
 }
